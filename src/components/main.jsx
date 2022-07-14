@@ -7,7 +7,7 @@ export default function Main() {
     bethorse,
     amount;
 
-  const startRacing = () => {
+  const startRacing = (e) => {
     var horse1 = new Horse("horse1", 20, 4);
     var horse2 = new Horse("horse2", 20, 8);
     var horse3 = new Horse("horse3", 20, 12);
@@ -15,6 +15,9 @@ export default function Main() {
     amount = parseInt(document.getElementById("amount").value);
     num_lap = parseInt(document.getElementById("num_lap").value);
     bethorse = parseInt(document.getElementById("bethorse").value);
+    console.log(amount)
+    // if (amount == NaN) amount = 0;
+    if (isNaN(amount)) amount = 0;
 
     if (funds < amount) {
       alert("Not enough funds.");
@@ -23,7 +26,7 @@ export default function Main() {
     } else {
       /*Started the game*/
       var tds = document.querySelectorAll("#results .result"); //Get all cells of result table.
-
+      e.target.disabled = true;
       for (var i = 0; i < tds.length; i++) {
         tds[i].className = "result";
       }
@@ -192,7 +195,7 @@ export default function Main() {
         <div id="startline"></div>
 
         <div className="inner">
-          <button id="start" onClick={startRacing}>
+          <button id="start" onClick={(e) => startRacing(e)}>
             Start Race
           </button>
 
@@ -201,7 +204,7 @@ export default function Main() {
               You currently have <span id="funds">100</span>
             </p>
             <label>Bet Amount £</label>
-            <input type="number" id="amount" placeholder="0" />
+            <input type="number" id="amount" defaultValue={0} />
             <label>Bet on horse:</label>
             <select id="bethorse">
               <option value="1">White</option>
