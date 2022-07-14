@@ -13,8 +13,6 @@ export default function Main() {
     amount = parseInt(document.getElementById("amount").value);
     num_lap = parseInt(document.getElementById("num_lap").value);
     bethorse = parseInt(document.getElementById("bethorse").value);
-    console.log(amount)
-    // if (amount == NaN) amount = 0;
     if (isNaN(amount)) amount = 0;
 
     if (funds < amount) {
