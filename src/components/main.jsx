@@ -7,12 +7,11 @@ export default function Main() {
     bethorse,
     amount;
 
-  var horse1 = new Horse("horse1", 20, 4);
-  var horse2 = new Horse("horse2", 20, 8);
-  var horse3 = new Horse("horse3", 20, 12);
-  var horse4 = new Horse("horse4", 20, 16);
-
   const startRacing = () => {
+    var horse1 = new Horse("horse1", 20, 4);
+    var horse2 = new Horse("horse2", 20, 8);
+    var horse3 = new Horse("horse3", 20, 12);
+    var horse4 = new Horse("horse4", 20, 16);
     amount = parseInt(document.getElementById("amount").value);
     num_lap = parseInt(document.getElementById("num_lap").value);
     bethorse = parseInt(document.getElementById("bethorse").value);
@@ -26,7 +25,7 @@ export default function Main() {
       var tds = document.querySelectorAll("#results .result"); //Get all cells of result table.
 
       for (var i = 0; i < tds.length; i++) {
-        tds[i].className = "result"; //Reset the result.
+        tds[i].className = "result";
       }
 
       document.getElementById("funds").innerText = funds;
@@ -211,7 +210,7 @@ export default function Main() {
               <option value="4">Brown</option>
             </select>
             <label>Number of lap</label>
-            <input type="number" id="num_lap" name="num_lap" value="1" />
+            <input type="number" id="num_lap" name="num_lap" defaultValue={1} />
           </div>
           <img src="./images/tree.png" className="tree" alt="tree" />
           <br />
