@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function Main() {
   var num_lap = 1,
     results = [],
